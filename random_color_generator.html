@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 30rem;
+            height: 15rem;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: white;
+        }
+        body{
+            background-color: black;
+        }
+        button{
+            font-size: 25px;
+            display: block;
+            width: 100%;
+            color: white;
+            background-color: black;
+            border: none;
+            border-radius: 5ox;
+        }
+        #color-code{
+            margin-left: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <h2 id="color-code">#fff</h2>
+            <button id="btn" >Click Me</button>
+        </div>
+    </div>
+    <script>
+        const getcolor = () =>{
+            // hex code
+            const randomnumber = Math.floor(Math.random()*16777215);
+            const randomcode = "#" + randomnumber.toString(16);
+            console.log(randomnumber,randomcode);
+            document.body.style.backgroundColor = randomcode;
+            document.getElementById('color-code').innerText = randomcode;
+            navigator.clipboard.writeText(randomcode);
+        }   
+        document.getElementById('btn').addEventListener('click',getcolor)
+        getcolor();
+    </script>
+</body>
+</html>
